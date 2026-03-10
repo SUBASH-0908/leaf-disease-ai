@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Farmer Assistant</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌱 AI Farmer Assistant</h1>
+<p>Drag & Drop Leaf Image</p>
+
+<form id="upload-form" action="/predict" method="post" enctype="multipart/form-data">
+
+<div id="drop-area">
+
+<p>📂 Drag & Drop Image Here</p>
+<p>or</p>
+
+<input type="file" id="fileElem" name="image" accept="image/*" required>
+
+<label class="upload-btn" for="fileElem">
+Choose File
+</label>
+
+</div>
+
+<img id="preview" />
+
+<button type="submit">Detect Disease</button>
+
+</form>
+
+{% if disease %}
+
+<div class="result-card">
+
+<h2>🌿 Disease Detection Result</h2>
+
+<div class="disease-name">
+<strong>Disease:</strong> {{disease}}
+</div>
+
+<div class="confidence">
+<strong>Confidence:</strong> {{confidence}}%
+</div>
+
+<div class="health-status {{condition}}" >
+Leaf Condition: {{condition}}
+</div>
+
+<div class="progress-bar">
+<div class="progress" style="width: {{confidence}}%"></div>
+</div>
+
+</div>
+
+{% endif %}
+
+<div id="loading-screen">
+    <div class="loader-box">
+
+        <div class="spinner"></div>
+
+        <h2>Analyzing Leaf Image</h2>
+
+        <div class="steps">
+            <p id="step1">🔌 Connecting to AI server...</p>
+            <p id="step2">🧠 Processing plant disease model...</p>
+            <p id="step3">🌿 Detecting leaf condition...</p>
+            <p id="step4">📊 Preparing result...</p>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="/static/script.js"></script>
+<script>
+
+const form = document.querySelector("form");
+const loading = document.getElementById("loading-screen");
+
+form.addEventListener("submit", function(){
+
+    loading.style.display = "flex";
+
+    setTimeout(()=>{
+        document.getElementById("step1").style.opacity = "1";
+    },500)
+
+    setTimeout(()=>{
+        document.getElementById("step2").style.opacity = "1";
+    },1500)
+
+    setTimeout(()=>{
+        document.getElementById("step3").style.opacity = "1";
+    },2500)
+
+    setTimeout(()=>{
+        document.getElementById("step4").style.opacity = "1";
+    },3500)
+
+})
+
+</script>
+</body>
+</html>
