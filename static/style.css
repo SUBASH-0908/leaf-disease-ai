@@ -1,0 +1,214 @@
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#4CAF50,#8BC34A);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:0;
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:15px;
+width:420px;
+text-align:center;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+transition:transform 0.3s;
+}
+
+.container:hover{
+transform:translateY(-5px);
+}
+
+h1{
+color:#2e7d32;
+}
+
+#drop-area{
+border:2px dashed #4CAF50;
+border-radius:12px;
+padding:30px;
+cursor:pointer;
+transition:all 0.3s;
+}
+
+#drop-area:hover{
+background:#f3fff3;
+border-color:#2e7d32;
+}
+
+.upload-btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 15px;
+background:#4CAF50;
+color:white;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.upload-btn:hover{
+background:#388E3C;
+}
+
+input[type=file]{
+display:none;
+}
+
+button{
+margin-top:20px;
+padding:12px 20px;
+background:#4CAF50;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+transition:0.3s;
+}
+
+button:hover{
+background:#2e7d32;
+transform:scale(1.05);
+}
+
+#preview{
+margin-top:20px;
+max-width:100%;
+border-radius:10px;
+display:none;
+}
+
+.result{
+margin-top:20px;
+background:#f1f8e9;
+padding:15px;
+border-radius:10px;
+animation:fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:500px){
+.container{
+width:90%;
+padding:25px;
+}
+}
+
+.result-card{
+margin-top:25px;
+padding:20px;
+background:#f9fff5;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+animation:fadeUp 0.6s ease;
+}
+
+.disease-name{
+font-size:18px;
+margin-top:10px;
+}
+
+.confidence{
+margin-top:5px;
+font-size:16px;
+}
+
+.health-status{
+margin-top:10px;
+padding:8px;
+border-radius:6px;
+font-weight:bold;
+color:rgb(0, 0, 0);
+}
+
+.health-status.Poor{
+background:#e53935;
+}
+
+.health-status.Slightly\ Good{
+background:#fbc02d;
+}
+
+.health-status.Very\ Good{
+background:#43a047;
+}
+
+.progress-bar{
+margin-top:15px;
+width:100%;
+height:10px;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress{
+height:100%;
+background:linear-gradient(90deg,#4CAF50,#8BC34A);
+animation:loadBar 1s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes loadBar{
+from{
+width:0;
+}
+}
+
+#loading-screen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#0f172a;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+}
+
+.loader-box{
+    text-align:center;
+    color:white;
+}
+
+.spinner{
+    width:60px;
+    height:60px;
+    border:6px solid #334155;
+    border-top:6px solid #22c55e;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+.steps p{
+    opacity:0.3;
+    margin:8px;
+    transition:0.5s;
+}
